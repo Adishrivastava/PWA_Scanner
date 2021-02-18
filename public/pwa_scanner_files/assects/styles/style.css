@@ -1,0 +1,226 @@
+@import url("https://fonts.googleapis.com/css?family=Comfortaa|Great+Vibes|Josefin+Sans|Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Parisienne|Poppins&display=swap");
+*,
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  text-align: center;
+  font-weight: bold;
+  background-image: -webkit-gradient(linear, left top, right top, from(#002243), to(#000305));
+  background-image: linear-gradient(to right, #002243, #000305);
+  color: #c5f5fc;
+}
+
+nav {
+  background-image: -webkit-gradient(linear, left top, right top, from(#002243), to(#000305));
+  background-image: linear-gradient(to right, #002243, #000305);
+  position: fixed;
+  z-index: 100;
+}
+
+#spinnerDiv {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.625);
+  display: none;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  z-index: 10;
+}
+
+#spinnerDiv #spinner {
+  -webkit-transform: scale(0.6);
+          transform: scale(0.6);
+  background-color: transparent;
+}
+
+#full {
+  padding-bottom: 50px;
+  padding-top: 60px;
+  min-height: 100vh;
+  background-image: -webkit-gradient(linear, left top, right bottom, from(#b0d8ec), to(#b8e2fa));
+  background-image: linear-gradient(to bottom right, #b0d8ec, #b8e2fa);
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#preview {
+  width: 100%;
+  height: auto;
+}
+
+#bottom-bar {
+  width: 100%;
+  height: 50px;
+  max-height: 8vh;
+  background-color: #000511;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: white;
+  z-index: 10;
+}
+
+#bottom-bar .col {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 50px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  cursor: pointer;
+}
+
+#bottom-bar .col:hover {
+  background-color: black;
+}
+
+#info .input-field {
+  padding: 20px;
+}
+
+#info button {
+  display: block;
+  margin: auto;
+}
+
+#info #entityName {
+  border-radius: 40px;
+  padding: 10px;
+}
+
+#info #details li {
+  border-radius: 20px;
+  margin: 10px;
+}
+
+#info #details li span {
+  font-weight: bold;
+}
+
+#scanner-div {
+  display: block;
+}
+
+#info-div {
+  display: none;
+  width: 100%;
+  padding-bottom: 100px;
+}
+
+#login-cont {
+  margin-top: 150px;
+  border-radius: 10px;
+  border: 1px solid #1b1a1a;
+  padding: 20px;
+  display: none;
+}
+
+#login-cont #login-form {
+  width: 100%;
+  max-width: 500px;
+  display: block;
+  margin: auto;
+}
+
+#login-cont #login-form button {
+  display: block;
+  margin: auto;
+}
+
+#modal1 #entity-name {
+  padding-top: 20px;
+}
+
+#modal1 #entity-det {
+  overflow-x: scroll;
+}
+
+#modal1 #entity-det .flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#modal1 #entity-det li {
+  margin: 10px;
+  font-weight: bold;
+  padding: 10px;
+}
+
+#modal1 #entity-det li .c1 {
+  width: 20%;
+  min-width: 20px;
+  text-align: center;
+  margin: 0;
+}
+
+#modal1 #entity-det li .c2 {
+  width: 40%;
+  min-width: 100px;
+  text-align: center;
+  margin: 0;
+}
+
+#modal1 #entity-det li .c3 {
+  width: 40%;
+  min-width: 100px;
+  text-align: center;
+  margin: 0;
+}
+
+table thead {
+  background-color: black;
+}
+
+table thead th {
+  color: white !important;
+}
+
+#com-n-ent {
+  display: none;
+}
+
+@media scrren and (max-width: 600px) {
+  #info-div {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+}
+/*# sourceMappingURL=style.css.map */

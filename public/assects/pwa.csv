@@ -1,0 +1,7 @@
+component,name/uid,unit,delay,password,geo,latitude,longitude,max-distance
+component-1,uid-1,kilo,10000,password-1,TRUE,22.972349,76.042084,12
+component-2,uid-2,length,20000,password-2,FALSE,,,
+component-3,uid-3,lit,1212,password-3,TRUE,22.972349,76.042084,10
+component-4,uid-4,meters,12212,password-4,FALSE,,,
+component-1,uid-5,kilo,211222,password-5,FALSE,,,
+component-2,uid-6,lit,122221,password-6,TRUE,22.972349,76.042084,5

@@ -1,0 +1,276 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+
+// ? basic css here ------------------
+
+*,
+body,
+html {
+	padding: 0;
+	margin: 0;
+	font-family: 'Poppins', sans-serif;
+}
+
+//// removing all arrows from inputs
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+	-moz-appearance: textfield;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+	text-align: center;
+	font-weight: bold;
+}
+
+// ? header css here ------------------
+nav {
+	.nav-wrapper {
+		.side-nav {
+			padding-top: 50px;
+			li {
+				color: black;
+				text-align: center;
+				font-weight: bold;
+				font-size: 1.2em;
+				margin-top: 20px;
+				cursor: pointer;
+				button {
+					display: block;
+					margin: auto;
+					margin-top: 50px;
+				}
+			}
+		}
+	}
+}
+
+//? spinner css
+#spinnerDiv {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, 0.625);
+	display: none;
+	align-items: center;
+	justify-content: center;
+	z-index: 10;
+	#spinner {
+		transform: scale(0.6);
+		background-color: transparent;
+	}
+}
+
+// ! ______ different components in the admin panel _____
+
+// ? main tag
+main {
+	width: 100%;
+}
+
+// ? generate new qr codes
+#gen-qr {
+	padding-top: 20px;
+	padding-bottom: 50px;
+	display: none;
+	#gen-form {
+		button {
+			display: block;
+			margin: auto;
+		}
+	}
+	#qrcode {
+		width: 160px;
+		height: 160px;
+		margin-top: 15px;
+	}
+	#codes-container {
+		box-shadow: 3px 4px 5px rgb(63, 62, 62);
+		border: 0.3px solid black;
+		background-color: white;
+		margin-left: 0;
+		margin-right: 0;
+		padding: 20px;
+		width: 100% !important;
+		#codeRow {
+			.col {
+				margin-top: 30px;
+				padding: 20px;
+				img {
+					display: block;
+					margin: auto;
+				}
+			}
+		}
+	}
+
+	#downloadBtn {
+		display: block;
+		margin: auto;
+		max-width: 200px;
+		margin-top: 40px;
+	}
+}
+
+// ? new admin css --------------------
+#c-a-c {
+	display: none;
+	margin-top: 100px;
+	width: 80%;
+	max-width: 400px;
+	padding: 10px 40px 0px 40px;
+	border-radius: 10px;
+	border: 1.5px solid rgb(82, 86, 91);
+	margin-top: 50px;
+	background-color: rgb(236, 242, 252);
+
+	h5 {
+		margin-bottom: 40px;
+	}
+	.m-t {
+		margin-top: 12px;
+		transform: scale(0.8);
+	}
+
+	button {
+		display: block;
+		margin: auto;
+		margin-top: 0;
+	}
+}
+
+// ? add entity scss
+#add-entity {
+	padding: 10px 40px 0px 40px;
+	border-radius: 10px;
+	border: 1.5px solid rgb(82, 86, 91);
+	margin-top: 50px;
+	background-color: rgb(236, 242, 252);
+	display: none;
+	#add-e-form {
+		#geo-inputs {
+			margin-top: 40px;
+			display: none;
+		}
+		#addEBtn {
+			display: block;
+			margin: auto;
+		}
+	}
+}
+
+// ? Showing components and entities scss
+#com-n-ent {
+	width: 90%;
+
+	margin: auto;
+	padding-bottom: 50px;
+	display: none;
+	#com-container {
+		display: none;
+		margin: 0 !important;
+		overflow-x: scroll;
+		width: 100% !important;
+		padding-top: 20px;
+
+		h3 {
+			min-height: 50px;
+		}
+		table {
+			background-color: rgb(179, 189, 197);
+			thead {
+				background-color: rgb(49, 86, 144);
+
+				th {
+					color: white !important;
+				}
+			}
+		}
+	}
+	#show {
+		display: block;
+		margin: auto;
+	}
+}
+
+// ? modal scss
+#modal1 {
+	#entity-name {
+		padding-top: 20px;
+	}
+	#entity-det {
+		overflow-x: scroll;
+		.flex {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		li {
+			margin: 10px;
+			font-weight: bold;
+			padding: 10px;
+
+			.c1 {
+				width: 20%;
+				min-width: 20px;
+				text-align: center;
+				margin: 0;
+			}
+			.c2 {
+				width: 40%;
+				min-width: 100px;
+				text-align: center;
+				margin: 0;
+			}
+			.c3 {
+				width: 40%;
+				min-width: 100px;
+				text-align: center;
+				margin: 0;
+			}
+		}
+	}
+}
+
+#usersSec {
+	display: block;
+}
+
+.list-items {
+	padding: 20px;
+}
+.catNames {
+	padding-right: 40px;
+}
+
+#userAddForm {
+	border-radius: 10px;
+	border: 1px solid black;
+	padding: 30px;
+	padding-top: 0;
+	margin-bottom: 100px;
+}
+
+thead {
+	background-color: black;
+	th {
+		color: white !important;
+	}
+}
+
+button {
+	display: block;
+	margin: auto;
+}

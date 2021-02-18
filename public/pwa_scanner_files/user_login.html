@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Title of the document</title>
+		<!-- Material Icon CDN -->
+		<link
+			href="https://fonts.googleapis.com/icon?family=Material+Icons"
+			rel="stylesheet"
+		/>
+		<!-- Materialize CSS CDN -->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"
+		/>
+		<!-- Your custom styles -->
+		<link rel="stylesheet" href="./assects/styles/style.css" />
+		<!-- Used as an example only to position the footer at the end of the page.
+	 You can delete these styles or move it to your custom css file -->
+
+		<link rel="manifest" href="./manifest.json" />
+		<style>
+			body {
+				display: flex;
+				min-height: 100vh;
+				flex-direction: column;
+			}
+			main {
+				flex: 1 0 auto;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<nav class="cyan">
+				<div class="nav-wrapper">
+					<div class="container">
+						<a href="#" class="brand-logo">Login Page</a>
+					</div>
+				</div>
+			</nav>
+		</header>
+
+		<!-- ? main content here -->
+		<main>
+			<div class="container" id="login-cont">
+				<form id="login-form">
+					<div class="row">
+						<div class="input-field col s12 m12 l12">
+							<input
+								type="text"
+								name="usernameInput"
+								id="username-input"
+							/>
+							<label for="username-input">
+								username
+							</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s12 m12 l12">
+							<input
+								type="password"
+								name="passwordInput"
+								id="password-input"
+							/>
+							<label for="password-input">
+								password
+							</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s12 m12">
+							<button class="btn teal waves-effect" type="submit">
+								login
+								<i class="material-icons right">send</i>
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</main>
+		>
+		<!-- jQuery CDN -->
+		<script
+			src="https://code.jquery.com/jquery-3.2.1.min.js"
+			integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+			crossorigin="anonymous"
+		></script>
+		<!-- Materialize JS CDN -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+		<!-- // sweet alert -->
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+		<!-- // firebase setup -->
+		<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
+
+		<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-analytics.js"></script>
+
+		<!-- // web app's Firebase configuration-->
+		<script>
+			var firebaseConfig = {
+				apiKey: 'AIzaSyDZnXK0WaYLOy94j2u7fmvTDBz4pCzCjd8',
+				authDomain: 'pwascanner-eb5b3.firebaseapp.com',
+				databaseURL: 'https://pwascanner-eb5b3.firebaseio.com',
+				projectId: 'pwascanner-eb5b3',
+				storageBucket: 'pwascanner-eb5b3.appspot.com',
+				messagingSenderId: '982009012092',
+				appId: '1:982009012092:web:e8f694d4b190d4558b4ef9',
+				measurementId: 'G-8QLF2WHHSD',
+			};
+			// Initialize Firebase
+			firebase.initializeApp(firebaseConfig);
+			firebase.analytics();
+
+			// defining variables
+			const auth = firebase.auth();
+			const db = firebase.firestore();
+		</script>
+
+		<!-- // including external js-->
+		<script src="./assects/scripts/app.js"></script>
+		<!-- // including external js-->
+		<script src="./assects/scripts/login.js"></script>
+	</body>
+</html>

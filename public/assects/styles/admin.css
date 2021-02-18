@@ -1,0 +1,284 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
+*,
+body,
+html {
+  padding: 0;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  text-align: center;
+  font-weight: bold;
+}
+
+nav .nav-wrapper .side-nav {
+  padding-top: 50px;
+}
+
+nav .nav-wrapper .side-nav li {
+  color: black;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+nav .nav-wrapper .side-nav li button {
+  display: block;
+  margin: auto;
+  margin-top: 50px;
+}
+
+#spinnerDiv {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.625);
+  display: none;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  z-index: 10;
+}
+
+#spinnerDiv #spinner {
+  -webkit-transform: scale(0.6);
+          transform: scale(0.6);
+  background-color: transparent;
+}
+
+main {
+  width: 100%;
+}
+
+#gen-qr {
+  padding-top: 20px;
+  padding-bottom: 50px;
+  display: none;
+}
+
+#gen-qr #gen-form button {
+  display: block;
+  margin: auto;
+}
+
+#gen-qr #qrcode {
+  width: 160px;
+  height: 160px;
+  margin-top: 15px;
+}
+
+#gen-qr #codes-container {
+  -webkit-box-shadow: 3px 4px 5px #3f3e3e;
+          box-shadow: 3px 4px 5px #3f3e3e;
+  border: 0.3px solid black;
+  background-color: white;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 20px;
+  width: 100% !important;
+}
+
+#gen-qr #codes-container #codeRow .col {
+  margin-top: 30px;
+  padding: 20px;
+}
+
+#gen-qr #codes-container #codeRow .col img {
+  display: block;
+  margin: auto;
+}
+
+#gen-qr #downloadBtn {
+  display: block;
+  margin: auto;
+  max-width: 200px;
+  margin-top: 40px;
+}
+
+#c-a-c {
+  display: none;
+  margin-top: 100px;
+  width: 80%;
+  max-width: 400px;
+  padding: 10px 40px 0px 40px;
+  border-radius: 10px;
+  border: 1.5px solid #52565b;
+  margin-top: 50px;
+  background-color: #ecf2fc;
+}
+
+#c-a-c h5 {
+  margin-bottom: 40px;
+}
+
+#c-a-c .m-t {
+  margin-top: 12px;
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
+}
+
+#c-a-c button {
+  display: block;
+  margin: auto;
+  margin-top: 0;
+}
+
+#add-entity {
+  padding: 10px 40px 0px 40px;
+  border-radius: 10px;
+  border: 1.5px solid #52565b;
+  margin-top: 50px;
+  background-color: #ecf2fc;
+  display: none;
+}
+
+#add-entity #add-e-form #geo-inputs {
+  margin-top: 40px;
+  display: none;
+}
+
+#add-entity #add-e-form #addEBtn {
+  display: block;
+  margin: auto;
+}
+
+#com-n-ent {
+  width: 90%;
+  margin: auto;
+  padding-bottom: 50px;
+  display: none;
+}
+
+#com-n-ent #com-container {
+  display: none;
+  margin: 0 !important;
+  overflow-x: scroll;
+  width: 100% !important;
+  padding-top: 20px;
+}
+
+#com-n-ent #com-container h3 {
+  min-height: 50px;
+}
+
+#com-n-ent #com-container table {
+  background-color: #b3bdc5;
+}
+
+#com-n-ent #com-container table thead {
+  background-color: #315690;
+}
+
+#com-n-ent #com-container table thead th {
+  color: white !important;
+}
+
+#com-n-ent #show {
+  display: block;
+  margin: auto;
+}
+
+#modal1 #entity-name {
+  padding-top: 20px;
+}
+
+#modal1 #entity-det {
+  overflow-x: scroll;
+}
+
+#modal1 #entity-det .flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#modal1 #entity-det li {
+  margin: 10px;
+  font-weight: bold;
+  padding: 10px;
+}
+
+#modal1 #entity-det li .c1 {
+  width: 20%;
+  min-width: 20px;
+  text-align: center;
+  margin: 0;
+}
+
+#modal1 #entity-det li .c2 {
+  width: 40%;
+  min-width: 100px;
+  text-align: center;
+  margin: 0;
+}
+
+#modal1 #entity-det li .c3 {
+  width: 40%;
+  min-width: 100px;
+  text-align: center;
+  margin: 0;
+}
+
+#usersSec {
+  display: block;
+}
+
+.list-items {
+  padding: 20px;
+}
+
+.catNames {
+  padding-right: 40px;
+}
+
+#userAddForm {
+  border-radius: 10px;
+  border: 1px solid black;
+  padding: 30px;
+  padding-top: 0;
+  margin-bottom: 100px;
+}
+
+thead {
+  background-color: black;
+}
+
+thead th {
+  color: white !important;
+}
+
+button {
+  display: block;
+  margin: auto;
+}
+/*# sourceMappingURL=admin.css.map */

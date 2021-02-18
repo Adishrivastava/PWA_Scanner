@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Admin panel</title>
+		<!-- // Material Icon CDN -->
+		<link
+			href="https://fonts.googleapis.com/icon?family=Material+Icons"
+			rel="stylesheet"
+		/>
+		<!-- // Materialize CSS CDN -->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"
+		/>
+
+		<!-- //  font awesome link  -->
+		<link
+			href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+			rel="stylesheet"
+			integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+			crossorigin="anonymous"
+		/>
+
+		<!-- // datatable cdn-->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.1.0/material.min.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdn.datatables.net/1.10.20/css/dataTables.material.min.css"
+		/>
+
+		<!-- // Your custom styles -->
+		<link rel="stylesheet" href="./assects/styles/admin.css" />
+	</head>
+	<body>
+		<!-- ?  header (NAVBAR) files goes here -->
+		<header>
+			<nav class="light-blue darken-3">
+				<div class="nav-wrapper">
+					<div class="container">
+						<a href="#" class="brand-logo"><b>Admin Panel</b></a>
+						<ul class="right">
+							<li>
+								<a href="#" data-activates="mobile-menu" class="buttons"
+									><i class="material-icons">menu</i></a
+								>
+							</li>
+						</ul>
+						<ul class="side-nav" id="mobile-menu">
+							<a class="sideli"
+								><li id="generateQR">Generate QR code</li></a
+							>
+							<a class="sideli"
+								><li id="createAdmin">Create Admin</li></a
+							>
+							<a class="sideli"><li id="addEntity">Add Entity</li></a>
+							<a class="sideli"><li id="entities">Entities</li></a>
+							<a class="sideli"><li id="users">Users</li></a>
+							<a class="sideli"
+								><li class="center">
+									<button
+										class="btn waves-block center valign center"
+										id="logoutBtn"
+									>
+										logout
+									</button>
+								</li></a
+							>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</header>
+
+		<!-- // spinnner -->
+		<div id="spinnerDiv">
+			<img src="./assects/Spinner.gif" alt="" id="spinner" />
+		</div>
+
+		<!-- ? main container goes here -->
+		<main>
+			<!-- // generate qr codes -->
+			<div class="container" id="gen-qr">
+				<h4>Generate new QR codes</h4>
+				<div class="row">
+					<form class="col s12 m12" id="gen-form">
+						<div class="row">
+							<div class="input-field col s12 m-12">
+								<input
+									type="text"
+									name="codeNames"
+									id="codeName"
+									placeholder="maximum 8 names allowed"
+									required
+								/>
+								<label for="codeNames">Enter names</label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="input-field col s12">
+								<button
+									class="btn pink darken-3 waves-light waves-effect"
+									type="submit"
+									name="action"
+								>
+									VIEW
+									<i class="material-icons right">send</i>
+								</button>
+							</div>
+						</div>
+					</form>
+				</div>
+				<!-- <div class="container" id="codes-container">
+					<div class="row" id="codeRow">
+						<div class="col s6 m4 l3" id="code0"></div>
+						<div class="col s6 m4 l3" id="code1"></div>
+						<div class="col s6 m4 l3" id="code2"></div>
+						<div class="col s6 m4 l3" id="code3"></div>
+						<div class="col s6 m4 l3" id="code4"></div>
+						<div class="col s6 m4 l3" id="code5"></div>
+						<div class="col s6 m4 l3" id="code6"></div>
+						<div class="col s6 m4 l3" id="code7"></div>
+					</div>
+				</div>
+
+				<a class="btn waves-effect" href="#" id="downloadBtn">
+					download
+				</a>
+				<button class="btn teal waves-effect" onclick="newTab()">
+					View
+				</button> -->
+			</div>
+
+			<!-- // create new admin -->
+			<div class="container n-admin-f" id="c-a-c">
+				<h5 class="center blue-text"><b>Login to Admin Panel</b></h5>
+				<div class="row">
+					<form class="col s12" id="login-form">
+						<div class="row">
+							<div class="input-field col s12">
+								<i class="material-icons m-t prefix">email</i>
+								<input
+									type="email"
+									name="email"
+									id="email-input"
+									class="validate"
+									required
+								/>
+								<label for="email-input">Email address</label>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="input-field col s12">
+								<i class="material-icons m-t prefix">priority_high</i>
+								<input
+									id="password-input"
+									name="password"
+									type="password"
+									class="validate"
+									required
+								/>
+								<label for="password">Password</label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="input-field col s12">
+								<i class="material-icons m-t prefix">priority_high</i>
+								<input
+									id="cpassword-input"
+									name="cpassword"
+									type="password"
+									class="validate"
+									required
+								/>
+								<label for="password">Password</label>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="input-field col s12">
+								<button
+									class="btn waves-effect waves-light"
+									type="submit"
+									name="action"
+								>
+									Submit
+									<i class="material-icons right">send</i>
+								</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+
+			<!-- // adding the new entity-->
+			<div class="container" id="add-entity">
+				<h4 class="center cyan-text"><b>Add new entity</b></h4>
+				<div class="row">
+					<form class="col s12" id="add-e-form" autocomplete="off">
+						<div class="row">
+							<div class="input-field col s12">
+								<input
+									type="text"
+									name="category"
+									id="category"
+									class="validate"
+									required
+								/>
+								<label for="component">Category name</label>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="input-field col s12 m6 l6">
+								<input
+									id="unit"
+									name="unit"
+									type="text"
+									list="units"
+									class="validate autocomplete-unit"
+									required
+								/>
+								<datalist id="units"> </datalist>
+
+								<label for="unit">Unit</label>
+							</div>
+							<div class="input-field col s12 m6 l6">
+								<input
+									id="delay"
+									name="delay"
+									type="number"
+									class="validate"
+									required
+								/>
+								<label for="delay">Maximum time delay</label>
+							</div>
+						</div>
+
+						<p>
+							<input type="checkbox" id="geoRes" class="filled-in" />
+							<label for="geoRes">Geo restriction</label>
+						</p>
+
+						<div class="row" id="geo-inputs">
+							<div class="input-fiels col s12" id="geoLocation">
+								<div class="row">
+									<div class="input-field col s12 m12 l4">
+										<button
+											type="button"
+											class="btn waves-effect waves-light indigo darken-3"
+											id="currLoc"
+											name="currLoc"
+										>
+											current coor.
+										</button>
+									</div>
+									<div class="input-field col s12 m6 l4">
+										<input
+											type="number"
+											placeholder="enter the latitude of location"
+											id="lat"
+											name="lat"
+											step="0.0000000000000001"
+										/>
+										<label for="lat">latitude</label>
+									</div>
+									<div class="input-field col s12 m6 l4">
+										<input
+											type="number"
+											placeholder="Enter the longitude of location"
+											id="lng"
+											name="lng"
+											step="0.0000000000000001"
+										/>
+										<label for="lng">longitude</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="input-field col s12 m6 l6">
+										<input
+											type="number"
+											placeholder="Enter the maximum distance allowed"
+											id="dist"
+											name="dist"
+										/>
+										<label for="dist">Maximum distance (in km)</label>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="input-field col s12">
+								<button
+									class="btn waves-effect waves-light"
+									type="submit"
+									name="action"
+									id="addEBtn"
+								>
+									Add Category
+									<i class="material-icons right">send</i>
+								</button>
+							</div>
+						</div>
+					</form>
+					<hr />
+				</div>
+
+				<div class="row" style="margin-top: 50px;">
+					<h4 class="center">Add entity to existing category</h4>
+
+					<!--// adding entity-->
+					<form id="addForm2">
+						<div class="row">
+							<div class="input-field col s12">
+								<select name="catSel" id="catSel">
+									<option value="none" disabled selected
+										>Choose an category</option
+									>
+								</select>
+								<label for="catSel">Select a category</label>
+							</div>
+							<div class="input-field col s12">
+								<input type="text" name="entName" id="entName" />
+								<label for="entName">Entity Name</label>
+							</div>
+							<div class="input-field col s12">
+								<button
+									class="btn teal waves-effect"
+									style="display: block; margin: auto;"
+									type="submit"
+								>
+									add entity
+								</button>
+							</div>
+						</div>
+					</form>
+
+					<!-- // bulk csv form -->
+					<form id="bulkForm">
+						<div class="row">
+							<div class="input-field col s12">
+								<input type="file" name="csv" id="csv" required />
+							</div>
+							<div class="input-field col s12">
+								<button
+									class="btn waves-effect waves-block teal"
+									id="bulkBtn"
+									type="submit"
+								>
+									ADD CSV
+								</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+
+			<!-- // showing entities -->
+			<div id="com-n-ent">
+				<h4 class="teal-text">
+					Different components and there entities
+				</h4>
+
+				<div class="row">
+					<div class="input-field col s12 m12">
+						<select name="catSel" id="catSelect">
+							<option value="none" disabled selected
+								>Choose your option</option
+							>
+						</select>
+						<label for="comSel">Select a component</label>
+					</div>
+					<div class="input-field col s12 m12">
+						<button
+							class="btn waves-effect orange waves-orange"
+							id="show"
+						>
+							show
+						</button>
+					</div>
+				</div>
+
+				<div id="com-container">
+					<h3 class="red-text text-accent-3">
+						<button class="btn waves-effect teal left" id="reset-com">
+							reset component
+						</button>
+						<span id="component-name" class="right"></span>
+					</h3>
+
+					<div id="cat-details">
+						<div class="row">
+							<div class="col s12 m6 l6">
+								<span>Unit : </span><span id="unit-cat"></span>
+							</div>
+							<div class="col s12 m6 l6">
+								<span>Delay : </span><span id="delay-cat"></span>
+							</div>
+							<div class="col s12 m6 l6">
+								<span>geo : </span><span id="geo-cat"></span>
+							</div>
+							<div class="col s12 m6 l6">
+								<span>latitude : </span><span id="lat-cat"></span>
+							</div>
+							<div class="col s12 m6 l6">
+								<span>longitude : </span><span id="lng-cat"></span>
+							</div>
+							<div class="col s12 m6 l6">
+								<span>Maximum distance : </span
+								><span id="maxDis-cat"></span>
+							</div>
+						</div>
+					</div>
+					<table id="catTable" class="mdl-data-table" style="width: 100%;">
+						<thead>
+							<tr>
+								<th>Name</th>
+								<th>No. of times scanned</th>
+								<th>Delete</th>
+								<th>Reset</th>
+								<th>generate</th>
+								<th>Details</th>
+							</tr>
+						</thead>
+						<tbody></tbody>
+					</table>
+				</div>
+			</div>
+
+			<!-- // users section -->
+			<div id="usersSec" class="container">
+				<h4 class="teal-text">Users</h4>
+				<div id="tableCont" style="overflow-x: scroll;">
+					<table
+						id="usersTable"
+						class="mdl-data-table"
+						style="width: 100%;"
+					>
+						<thead>
+							<tr>
+								<th>Name</th>
+								<th>email</th>
+								<th>mobile</th>
+								<th>password</th>
+								<th>delete</th>
+								<th>Details</th>
+							</tr>
+						</thead>
+						<tbody></tbody>
+					</table>
+				</div>
+				<!-- // Modal Structure -->
+				<div id="modal2" class="modal">
+					<div class="modal-content">
+						<h4>Categories</h4>
+						<ul class="collection" id="categoriesList"></ul>
+
+						<h4 class="cyan-text" style="padding-top: 20px;">
+							Add Categories
+						</h4>
+						<form id="addUserCat">
+							<div class="row">
+								<div style="padding: 20px;" id="userCatAdd"></div>
+								<!-- // hidden input for id -->
+								<input
+									type="hidden"
+									name="userId"
+									id="userId"
+									value=""
+								/>
+								<div class="input-field col s12 m12 l12">
+									<button
+										class="btn waves-effect"
+										style="display: block; margin: auto;"
+									>
+										ADD <i class="material-icons">send</i>
+									</button>
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<a
+							href="#!"
+							class="modal-close waves-effect waves-green btn-flat"
+							>Close</a
+						>
+					</div>
+				</div>
+
+				<!-- // adding users form-->
+				<form id="userAddForm">
+					<h3>ADD USER</h3>
+					<div class="row">
+						<div class="input-field col s12 m12">
+							<input
+								type="text"
+								id="userNameInp"
+								name="userNameInp"
+								required
+							/>
+							<label for="userNameInp">Name</label>
+						</div>
+						<div class="input-field col s12 m12">
+							<input
+								type="email"
+								id="userEmailInp"
+								name="userEmailInp"
+								required
+							/>
+							<label for="userEmailInp">Email</label>
+						</div>
+						<div class="input-field col s12 m12">
+							<input
+								type="number"
+								id="userMobileInp"
+								name="userMobileInp"
+								required
+							/>
+							<label for="userMobileInp">Mobile</label>
+						</div>
+						<div class="input-field col s12 m12">
+							<input
+								type="Password"
+								id="userPasswordInp"
+								name="userPasswordInp"
+								class="validate"
+								required
+							/>
+						</div>
+						<div class="input-field col s12">
+							<button
+								class="btn waves-effect"
+								type="submit"
+								style="display: block; margin: auto;"
+							>
+								Add User
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
+
+			<!-- // Modal Structure -->
+			<div id="modal1" class="modal">
+				<div class="modal-content">
+					<h4 id="entity-name"></h4>
+					<div class="container" id="entity-det">
+						<ul class="collection" id="scansList"></ul>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<a
+						href="#!"
+						class="modal-close waves-effect waves-green btn-flat"
+						>Close</a
+					>
+				</div>
+			</div>
+		</main>
+
+		<!-- ? _______ javascript files goes here ________ -->
+
+		<!-- // jQuery CDN -->
+		<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+		<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+
+		<!-- // datatables jquery cdn-->
+		<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+
+		<!-- // datatables material cdn-->
+		<script src="https://cdn.datatables.net/1.10.20/js/dataTables.material.min.js"></script>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
+		<!-- // Materialize JS CDN -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+
+		<!-- // sweet alert -->
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+		<!-- // qr code generator -->
+		<script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+
+		<!-- // firebase setup -->
+		<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
+
+		<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-analytics.js"></script>
+
+		<!-- // getting html2canvas.js -->
+		<script src="https://files.codepedia.info/files/uploads/iScripts/html2canvas.js"></script>
+
+		<!-- // web app's Firebase configuration-->
+		<script>
+			var firebaseConfig = {
+				apiKey: 'AIzaSyDZnXK0WaYLOy94j2u7fmvTDBz4pCzCjd8',
+				authDomain: 'pwascanner-eb5b3.firebaseapp.com',
+				databaseURL: 'https://pwascanner-eb5b3.firebaseio.com',
+				projectId: 'pwascanner-eb5b3',
+				storageBucket: 'pwascanner-eb5b3.appspot.com',
+				messagingSenderId: '982009012092',
+				appId: '1:982009012092:web:e8f694d4b190d4558b4ef9',
+				measurementId: 'G-8QLF2WHHSD',
+			};
+			// Initialize Firebase
+			firebase.initializeApp(firebaseConfig);
+			firebase.analytics();
+
+			// defining variables
+			const auth = firebase.auth();
+			const db = firebase.firestore();
+		</script>
+
+		<!-- // including all external javascript files -->
+		<script src="./assects/scripts/admin/auth.js"></script>
+		<script src="./assects/scripts/admin/materialize_pro.js"></script>
+		<script src="./assects/scripts/admin/database.js"></script>
+		<script src="./assects/scripts/admin/gen_qr.js"></script>
+		<script src="./assects/scripts/admin/create_admin.js"></script>
+		<script src="./assects/scripts/admin/add_entity.js"></script>
+		<script src="./assects/scripts/admin/entities.js"></script>
+		<script src="./assects/scripts/admin/users.js"></script>
+	</body>
+</html>

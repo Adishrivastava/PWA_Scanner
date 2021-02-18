@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Admin panel</title>
+		<!-- // Material Icon CDN -->
+		<link
+			href="https://fonts.googleapis.com/icon?family=Material+Icons"
+			rel="stylesheet"
+		/>
+		<!-- // Materialize CSS CDN -->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"
+		/>
+
+		<!-- // datatable cdn-->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.1.0/material.min.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdn.datatables.net/1.10.20/css/dataTables.material.min.css"
+		/>
+
+		<style>
+			.container {
+				padding-top: 100px;
+			}
+			#codeRow {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+				gap: 2rem;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="full">
+			<div class="container" id="codes-container">
+				<div class="row" id="codeRow">
+					<div class="cols" id="code0"></div>
+					<div class="cols" id="code1"></div>
+					<div class="cols" id="code2"></div>
+					<div class="cols" id="code3"></div>
+					<div class="cols" id="code4"></div>
+					<div class="cols" id="code5"></div>
+					<div class="cols" id="code6"></div>
+					<div class="cols" id="code7"></div>
+				</div>
+			</div>
+
+			<a
+				class="btn waves-effect waves-purple"
+				style="display: block; margin: auto; max-width: 100px;"
+				href="#"
+				id="downloadBtn"
+			>
+				PRINT
+			</a>
+		</div>
+
+		<!-- ? _______ javascript files goes here ________ -->
+
+		<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+
+		<!-- // Materialize JS CDN -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+
+		<!-- // sweet alert -->
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+		<!-- // qr code generator -->
+		<script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+
+		<!-- // getting html2canvas.js -->
+		<script src="https://files.codepedia.info/files/uploads/iScripts/html2canvas.js"></script>
+
+		<script src="./assects/scripts/admin/codes.js"></script>
+	</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>QR Attendence</title>
+
+		<!-- Compiled and minified CSS -->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+		/>
+
+		<!--MATERIALIZE ICONS-->
+		<link
+			href="https://fonts.googleapis.com/icon?family=Material+Icons"
+			rel="stylesheet"
+		/>
+
+		<!-- Compiled and minified JavaScript -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+		<!-- extrenal css -->
+		<link rel="stylesheet" href="./styles/style.css" />
+	</head>
+	<body>
+		<!-- top nav -->
+		<nav class="z-depth-0">
+			<div class="nav-wrapper container">
+				<a href="/">QR<span>ATTENDENCE</span></a>
+				<span class="right grey-text text-darken-1">
+					<i class="material-icons sidenav-trigger" data-target="side-menu"
+						>menu</i
+					>
+				</span>
+			</div>
+		</nav>
+
+		<!-- side nav -->
+		<ul
+			id="side-menu"
+			class="sidenav side-menu"
+			style="color: rgb(207, 240, 238);"
+		>
+			<li><a class="subheader">QR ATTENDENCE</a></li>
+
+			<li><a href="./index.html" class="waves-effect">Home</a></li>
+			<li><a href="./admin.html" class="waves-effect">Admin</a></li>
+
+			<li><div class="divider"></div></li>
+			<li>
+				<a href="/admin.html" class="waves-effect">
+					<i class="material-icons">mail_outline</i>Contact</a
+				>
+			</li>
+		</ul>
+
+		<!-- todo main container -->
+		<div class="container attendCont">
+			<h4 class="heading center-align">
+				ATTENDENCE FOR TODAY<br />
+				<span id="date"></span>
+			</h4>
+			<ul class="collection" id="names"></ul>
+		</div>
+
+		<!-- ! javascript files start here -->
+
+		<!-- jquery link -->
+		<script
+			src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+			integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+			integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+			crossorigin="anonymous"
+		></script>
+
+		<!-- The core Firebase JS SDK is always required and must be listed first -->
+		<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
+
+		<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+		<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-analytics.js"></script>
+
+		<script>
+			// Your web app's Firebase configuration
+			var firebaseConfig = {
+				apiKey: 'AIzaSyCDSzd08-Cg_GbWWHUE71IjI3YsWT2YVug',
+				authDomain: 'auction-a7cff.firebaseapp.com',
+				databaseURL: 'https://auction-a7cff.firebaseio.com',
+				projectId: 'auction-a7cff',
+				storageBucket: 'auction-a7cff.appspot.com',
+				messagingSenderId: '252261033995',
+				appId: '1:252261033995:web:f7264fdb531a9dd68dff0e',
+				measurementId: 'G-4EB2WRN0D2',
+			};
+			// Initialize Firebase
+			firebase.initializeApp(firebaseConfig);
+			firebase.analytics();
+
+			const db = firebase.firestore();
+		</script>
+
+		<!-- main instascan library
+		<script
+			type="text/javascript"
+			src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"
+		></script> -->
+
+		<!-- Sweet alert cdn-->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+
+		<!-- external scripts -->
+		<script src="./scripts/attend.js"></script>
+	</body>
+</html>

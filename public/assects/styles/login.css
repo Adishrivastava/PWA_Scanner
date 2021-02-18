@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
+*,
+body,
+html {
+  padding: 0;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+main {
+  padding-top: 50px;
+}
+
+main .main-container {
+  width: 100%;
+  max-width: 500px;
+  display: block;
+  margin: auto;
+}
+
+main .main-container h3 {
+  margin-bottom: 40px;
+}
+
+main .main-container .m-t {
+  margin-top: 10px;
+}
+
+main .main-container button {
+  display: block;
+  margin: auto;
+}
+/*# sourceMappingURL=login.css.map */

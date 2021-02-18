@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Title of the document</title>
+		<!-- Material Icon CDN -->
+		<link
+			href="https://fonts.googleapis.com/icon?family=Material+Icons"
+			rel="stylesheet"
+		/>
+		<!-- Materialize CSS CDN -->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"
+		/>
+
+		<!-- font awesome link  -->
+		<link
+			href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+			rel="stylesheet"
+			integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+			crossorigin="anonymous"
+		/>
+
+		<!-- Your custom styles -->
+		<link rel="stylesheet" href="./assects/styles/login.css" />
+	</head>
+	<body>
+		<!-- ! ________ header (NAVBAR) files goes here ______ -->
+		<header>
+			<nav class="light-blue darken-3">
+				<div class="nav-wrapper">
+					<div class="container">
+						<a href="#" class="brand-logo"><b>Admin Login</b></a>
+						<a href="#" data-activates="mobile-menu" class="buttons right"
+							><i class="material-icons">menu</i></a
+						>
+
+						<ul class="side-nav" id="mobile-menu">
+							<li><a href="#">item1</a></li>
+							<li><a href="#">item2</a></li>
+							<li><a href="#">item3</a></li>
+							<li><a href="#">item4</a></li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</header>
+
+		<!-- ! main container goes here -->
+		<main>
+			<!-- // Your content here -->
+			<div class="container main-container">
+				<h3 class="center pink-text"><b>Login to Admin Panel</b></h3>
+				<div class="row">
+					<form class="col s12" id="login-form">
+						<div class="row">
+							<div class="input-field col s12">
+								<i class="material-icons m-t prefix">email</i>
+								<input
+									type="email"
+									name="email"
+									id="email-input"
+									class="validate"
+								/>
+								<label for="email-input">Email address</label>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="input-field col s12">
+								<i class="material-icons m-t prefix">priority_high</i>
+								<input
+									id="password-input"
+									name="password"
+									type="password"
+									class="validate"
+								/>
+								<label for="password">Password</label>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="input-field col s12">
+								<button
+									class="btn waves-effect waves-light"
+									type="submit"
+									name="action"
+								>
+									Submit
+									<i class="material-icons right">send</i>
+								</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</main>
+
+		<!-- ! _______ javascript files goes here ________ -->
+
+		<!-- jQuery CDN -->
+		<script
+			src="https://code.jquery.com/jquery-3.2.1.min.js"
+			integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+			crossorigin="anonymous"
+		></script>
+		<!-- Materialize JS CDN -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+		<!-- // firebase setup -->
+		<!-- The core Firebase JS SDK is always required and must be listed first -->
+		<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
+
+		<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+		<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-analytics.js"></script>
+
+		<script>
+			// Your web app's Firebase configuration
+			var firebaseConfig = {
+				apiKey: 'AIzaSyDZnXK0WaYLOy94j2u7fmvTDBz4pCzCjd8',
+				authDomain: 'pwascanner-eb5b3.firebaseapp.com',
+				databaseURL: 'https://pwascanner-eb5b3.firebaseio.com',
+				projectId: 'pwascanner-eb5b3',
+				storageBucket: 'pwascanner-eb5b3.appspot.com',
+				messagingSenderId: '982009012092',
+				appId: '1:982009012092:web:e8f694d4b190d4558b4ef9',
+				measurementId: 'G-8QLF2WHHSD',
+			};
+			// Initialize Firebase
+			firebase.initializeApp(firebaseConfig);
+			firebase.analytics();
+
+			// defining variables
+			const auth = firebase.auth();
+			const db = firebase.firestore();
+		</script>
+
+		<script src="./assects/scripts/login.js"></script>
+	</body>
+</html>

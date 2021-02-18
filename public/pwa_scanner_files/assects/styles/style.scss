@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css?family=Comfortaa|Great+Vibes|Josefin+Sans|Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Parisienne|Poppins&display=swap');
+
+*,
+html,
+body {
+	padding: 0;
+	margin: 0;
+	font-family: 'Poppins', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+	text-align: center;
+	font-weight: bold;
+	background-image: linear-gradient(to right, rgb(0, 34, 67), rgb(0, 3, 5));
+	color: rgb(197, 245, 252);
+}
+
+nav {
+	background-image: linear-gradient(to right, rgb(0, 34, 67), rgb(0, 3, 5));
+	position: fixed;
+	z-index: 100;
+}
+
+//? spinner css
+#spinnerDiv {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, 0.625);
+	display: none;
+	align-items: center;
+	justify-content: center;
+	z-index: 10;
+	#spinner {
+		transform: scale(0.6);
+		background-color: transparent;
+	}
+}
+
+//// full container
+#full {
+	padding-bottom: 50px;
+	padding-top: 60px;
+	min-height: 100vh;
+	background-image: linear-gradient(
+		to bottom right,
+		rgb(176, 216, 236),
+		rgb(184, 226, 250)
+	);
+	width: 100%;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#preview {
+	width: 100%;
+	height: auto;
+}
+
+#bottom-bar {
+	width: 100%;
+	height: 50px;
+	max-height: 8vh;
+	background-color: rgb(0, 5, 17);
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	color: white;
+	z-index: 10;
+	.col {
+		display: flex;
+		height: 50px;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+		&:hover {
+			background-color: rgb(0, 0, 0);
+		}
+	}
+}
+
+#info {
+	.input-field {
+		padding: 20px;
+	}
+	button {
+		display: block;
+		margin: auto;
+	}
+	#entityName {
+		border-radius: 40px;
+		padding: 10px;
+	}
+	#details {
+		li {
+			border-radius: 20px;
+			margin: 10px;
+			span {
+				font-weight: bold;
+			}
+		}
+	}
+}
+
+#scanner-div {
+	display: block;
+}
+
+#info-div {
+	display: none;
+	width: 100%;
+	padding-bottom: 100px;
+}
+
+// ! ___________ login page scss _____________
+#login-cont {
+	margin-top: 150px;
+	border-radius: 10px;
+	border: 1px solid rgb(27, 26, 26);
+	padding: 20px;
+	display: none;
+	#login-form {
+		width: 100%;
+		max-width: 500px;
+		display: block;
+		margin: auto;
+		button {
+			display: block;
+			margin: auto;
+		}
+	}
+}
+
+// ? modal scss
+#modal1 {
+	#entity-name {
+		padding-top: 20px;
+	}
+	#entity-det {
+		overflow-x: scroll;
+		.flex {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		li {
+			margin: 10px;
+			font-weight: bold;
+			padding: 10px;
+
+			.c1 {
+				width: 20%;
+				min-width: 20px;
+				text-align: center;
+				margin: 0;
+			}
+			.c2 {
+				width: 40%;
+				min-width: 100px;
+				text-align: center;
+				margin: 0;
+			}
+			.c3 {
+				width: 40%;
+				min-width: 100px;
+				text-align: center;
+				margin: 0;
+			}
+		}
+	}
+}
+
+table {
+	thead {
+		background-color: black;
+		th {
+			color: white !important;
+		}
+	}
+}
+
+#com-n-ent {
+	display: none;
+}
+
+@media scrren and (max-width: 600px) {
+	#info-div {
+		margin-left: 0 !important;
+		margin-right: 0 !important;
+	}
+}

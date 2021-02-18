@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>QR Attendence</title>
+
+		<!-- Compiled and minified CSS -->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+		/>
+
+		<!--MATERIALIZE ICONS-->
+		<link
+			href="https://fonts.googleapis.com/icon?family=Material+Icons"
+			rel="stylesheet"
+		/>
+		<!-- // datatable cdn-->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.1.0/material.min.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdn.datatables.net/1.10.20/css/dataTables.material.min.css"
+		/>
+
+		<!-- // extrenal css -->
+		<link rel="stylesheet" href="./assects/styles/style.css" />
+
+		<!-- // linking the manifest file -->
+		<link rel="manifest" href="./manifest.json" />
+
+		<!-- // ios support -->
+		<link
+			rel="apple-touch-icon"
+			href="./assects/images/icons/icon-96x96.png"
+		/>
+		<meta name="aoople-mobile-web-app-status-bar" content="#8adefa" />
+	</head>
+	<body>
+		<!-- ! __________________ main body starts here_________________ -->
+
+		<!-- ? top nav -->
+		<nav class="z-depth-0">
+			<div class="nav-wrapper container">
+				<a href="/">QR<span>ATTENDENCE</span></a>
+
+				<button
+					class="btn waves-effect btn-small right"
+					style="margin-top: 15px;"
+					id="logout"
+				>
+					logout
+				</button>
+			</div>
+		</nav>
+
+		<!-- // spinnner -->
+		<div id="spinnerDiv">
+			<img src="../assects/Spinner.gif" alt="" id="spinner" />
+		</div>
+		<!-- ?  main container -->
+
+		<!-- // bottom bar -->
+		<div id="bottom-bar">
+			<div class="row">
+				<div class="col s6 m4 l3 offset-m2 offset-l3" id="scannerBtn">
+					<span
+						><img
+							src="./assects/images/icons/blackberry.png"
+							style="transform: scale(0.4);"
+							alt=""
+					/></span>
+				</div>
+				<div class="col s6 m4 l3" id="infoBtn">
+					<i class="material-icons">info_outline</i>
+				</div>
+			</div>
+		</div>
+
+		<div id="full">
+			<!-- // video section -->
+
+			<div id="scanner-div"><video id="preview"></video></div>
+
+			<!-- // information div -->
+			<div id="info-div" class="container">
+				<div id="info">
+					<div class="input-field">
+						<select name="categoriesAll" id="categoriesAll"> </select>
+					</div>
+					<button class="btn waves-effect" id="show">SHOW</button>
+
+					<!-- // showing entities -->
+					<div id="com-n-ent">
+						<div id="com-container">
+							<h3 class="red-text text-accent-3">
+								<span id="component-name"></span>
+							</h3>
+							<ul class="collection" id="details">
+								<li class="collection-item">
+									<span>Category : </span>
+									<span id="category"></span>
+								</li>
+
+								<li class="collection-item">
+									<span>Maximum delay : </span
+									><span id="maxTime"></span>
+								</li>
+								<li class="collection-item">
+									<span>Maximum distance</span>
+									<span id="distance"></span>
+								</li>
+								<li class="collection-item">
+									<span>Unit : </span>
+									<span id="unit"></span>
+								</li>
+								<li class="collection-item">
+									<span>geo : </span>
+									<span id="geo"></span>
+								</li>
+								<li class="collection-item">
+									<span>lat : </span>
+									<span id="lat"></span>
+								</li>
+								<li class="collection-item">
+									<span>lng : </span>
+									<span id="lng"></span>
+								</li>
+							</ul>
+							<div class="container" style="overflow-x: scroll;">
+								<table
+									id="catTable"
+									class="mdl-data-table"
+									style="width: 100%;"
+								>
+									<thead>
+										<tr>
+											<th>Name</th>
+											<th>scans</th>
+
+											<th>Details</th>
+										</tr>
+									</thead>
+									<tbody></tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- // Modal Structure -->
+			<div id="modal1" class="modal">
+				<div class="modal-content">
+					<h4 id="entity-name"></h4>
+					<div class="container" id="entity-det">
+						<ul class="collection" id="scansList"></ul>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<a
+						href="#!"
+						class="modal-close waves-effect waves-green btn-flat"
+						>Close</a
+					>
+				</div>
+			</div>
+			<!-- // login page -->
+			<div class="container" id="login-cont">
+				<form id="login-form">
+					<div class="row">
+						<div class="input-field col s12 m12 l12">
+							<input
+								type="text"
+								name="usernameInput"
+								id="username-input"
+							/>
+							<label for="username-input">
+								username
+							</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s12 m12 l12">
+							<input
+								type="password"
+								name="passwordInput"
+								id="password-input"
+							/>
+							<label for="password-input">
+								password
+							</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s12 m12">
+							<button class="btn teal waves-effect" type="submit">
+								login
+								<i class="material-icons right">send</i>
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<!-- // read section -->
+
+		<!-- ! _______________Javascript files from here_______________ -->
+
+		<!-- // jQuery CDN -->
+		<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+		<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+		<script
+			src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+			integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+			crossorigin="anonymous"
+		></script>
+		<!-- // datatables jquery cdn-->
+		<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+
+		<!-- // datatables material cdn-->
+		<script src="https://cdn.datatables.net/1.10.20/js/dataTables.material.min.js"></script>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
+		<!-- // Materialize JS CDN -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+
+		<!-- // sweet alert -->
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+		<!-- // The core Firebase JS SDK is always required and must be listed first -->
+		<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
+
+		<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-analytics.js"></script>
+
+		<!-- // main instascan library -->
+		<script
+			type="text/javascript"
+			src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"
+		></script>
+
+		<!-- // sweet alert -->
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+		<!-- // qr code generator -->
+		<script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+
+		<!-- // firebase setup -->
+		<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
+
+		<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-analytics.js"></script>
+
+		<!-- // getting html2canvas.js -->
+		<script src="https://files.codepedia.info/files/uploads/iScripts/html2canvas.js"></script>
+
+		<!-- // web app's Firebase configuration-->
+		<script>
+			var firebaseConfig = {
+				apiKey: 'AIzaSyDZnXK0WaYLOy94j2u7fmvTDBz4pCzCjd8',
+				authDomain: 'pwascanner-eb5b3.firebaseapp.com',
+				databaseURL: 'https://pwascanner-eb5b3.firebaseio.com',
+				projectId: 'pwascanner-eb5b3',
+				storageBucket: 'pwascanner-eb5b3.appspot.com',
+				messagingSenderId: '982009012092',
+				appId: '1:982009012092:web:e8f694d4b190d4558b4ef9',
+				measurementId: 'G-8QLF2WHHSD',
+			};
+			// Initialize Firebase
+			firebase.initializeApp(firebaseConfig);
+			firebase.analytics();
+
+			// defining variables
+			const auth = firebase.auth();
+			const db = firebase.firestore();
+		</script>
+
+		<!-- // linking app js -->
+		<script src="./assects/scripts/app.js"></script>
+
+		<!-- // external scripts -->
+		<script src="./assects/scripts/database.js"></script>
+		<script src="./assects/scripts/materialize_pro.js"></script>
+		<script src="./assects/scripts/index.js"></script>
+		<script src="./assects/scripts/scanner.js"></script>
+		<script src="./assects/scripts/info.js"></script>
+	</body>
+</html>
